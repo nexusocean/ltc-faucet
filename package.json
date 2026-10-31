@@ -1,0 +1,32 @@
+{
+  "name": "ltc-faucet",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Litecoin testnet faucet",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@12.16.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "tsx watch --env-file=.env src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "tsx --env-file=.env src/index.ts",
+    "start:prod": "node dist/index.js",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nexusocean/litecoin-rpc": "file:../github/ltc-rpc",
+    "fastify": "^5.6.1",
+    "mongodb": "^6.20.0",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.9",
+    "@types/nunjucks": "^3.2.6",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  }
+}
